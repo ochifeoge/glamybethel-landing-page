@@ -17,8 +17,8 @@ ScrollReveal().reveal(".reveal-p", {
   duration: 2000,
   delay: 1500,
 });
-ScrollReveal().reveal(".reveal-icon", {
-  origin: "left",
+ScrollReveal().reveal(".reveal-i", {
+  origin: "bottom",
   distance: "200px",
   duration: 2000,
   delay: 2000,
