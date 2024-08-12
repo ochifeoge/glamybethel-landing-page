@@ -18,6 +18,29 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.reveal-h,
+.reveal-p,
+.reveal-i {
+  transform: translateY(50px);
+  filter: blur(17px);
+  opacity: 0;
+  animation: showContent 0.5s 1s linear 1 forwards;
+}
+.reveal-p {
+  animation-delay: 1.2s;
+}
+.reveal-i {
+  animation-delay: 1.7s;
+}
+
+@keyframes showContent {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
 body {
   color: white;
   background-color: black;
@@ -60,6 +83,10 @@ header h3 i {
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
+  display: none;
+}
+.hero-text.active {
+  display: block;
 }
 
 .hero-text h2 {
@@ -70,6 +97,7 @@ header h3 i {
   font-size: 1.1rem;
   font-weight: 400;
 }
+
 .btn {
   padding: 7px 11px;
   border: 1px solid white;
@@ -96,15 +124,13 @@ header h3 i {
   width: 100%;
 }
 .btn i {
-  font-size: 2rem;
+  font-size: 1rem;
   margin-left: 0.5rem;
 }
 .btn:hover {
   color: green;
 }
-.hero-img {
-  flex-basis: 22%;
-}
+
 .aside-icons {
   display: flex;
   flex-direction: column;
@@ -119,7 +145,7 @@ header h3 i {
   transform: translateY(40%);
 }
 .videos {
-  display: none;
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
@@ -127,9 +153,11 @@ header h3 i {
   z-index: -10;
   width: 100%;
   height: 100%;
+  clip-path: ellipse(0% 0% at 0% 100%);
+  transition: clip-path 1s ease; /* Smooth transition for clip-path */
 }
 .videos.active {
-  display: block;
+  clip-path: ellipse(150% 150% at 0% 100%);
 }
 .aside-icons a {
   font-size: 1.3rem;
