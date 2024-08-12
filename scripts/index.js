@@ -53,8 +53,6 @@ swiperContainer.addEventListener("touchend", touchEnd);
 let touchStartTime, clientX;
 
 function touchStart(e) {
-  e.preventDefault();
-
   touchStartTime = Date.now();
   clientX = e.touches[0].clientX;
 }
